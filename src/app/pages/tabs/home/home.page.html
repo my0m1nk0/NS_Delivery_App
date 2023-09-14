@@ -1,0 +1,63 @@
+<ion-header >
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-avatar>
+        <img src="assets/imgs/marker_pick.png"/>
+      </ion-avatar>
+    </ion-buttons>
+    <ion-title mode="md" class="ion-no-padding">
+      <ion-label>
+        <ion-text color="white">You are here</ion-text>
+      <p>
+        Yangon , Ahlone
+        <ion-icon color="dark" name="chevron-down-outline"></ion-icon>
+      </p>
+      </ion-label>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-badge color="danger">&#9679;</ion-badge>
+        <ion-icon slot="icon-only" name="cart" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <swiper-container [modules]="swiperModules" [slidesPerView]="1.2" [spaceBetween]="10" [centeredSlides]="true">
+    <swiper-slide *ngFor="let img of banners">
+      <img [src]="img?.banner"/>
+    </swiper-slide>
+  </swiper-container>
+  <div class="topic">
+    What would you like to do today?
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-card>
+          <ion-thumbnail>
+            <img src="assets/imgs/package.png"/>
+          </ion-thumbnail>
+          <ion-label class="ion-text-warp ion-text-center">Send Packages</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3" *ngFor="let store of stores">
+        <ion-card>
+          <ion-thumbnail>
+            <img [src]="'assets/imgs/' + store.icon"/>
+          </ion-thumbnail>
+          <ion-label class="ion-text-warp ion-text-center">{{store.name}}</ion-label>
+        </ion-card>
+      </ion-col>
+      <ion-col size="3">
+        <ion-card>
+          <ion-thumbnail>
+            <img [src]="'assets/imgs/shop.png'"/>
+          </ion-thumbnail>
+          <ion-label class="ion-text-warp ion-text-center">Send Packages</ion-label>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
